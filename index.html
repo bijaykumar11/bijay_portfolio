@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bijay Kumar Chaudhary | Software Engineer Portfolio</title>
+<meta name="description" content="Software Engineer with 3+ years of experience building scalable Java and Spring Boot applications for healthcare and financial services, at Centene and Mphasis.">
+<meta name="keywords" content="Software Engineer, Java, Spring Boot, Kafka, AWS, RAG, GenAI, Healthcare, Centene, Mphasis">
+<meta name="author" content="Bijay Kumar Chaudhary">
+<meta property="og:title" content="Bijay Kumar Chaudhary | Software Engineer">
+<meta property="og:description" content="Java, Spring Boot, Kafka, AWS and GenAI for healthcare and financial platforms">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F8FAFC;--card:#fff;--primary:#2563EB;--secondary:#06B6D4;--accent:#7C3AED;--text:#0F172A;--muted:#64748B;--border:rgba(0,0,0,.08);--glass:rgba(255,255,255,.7);--shadow:0 4px 24px rgba(0,0,0,.06);--shadow-lg:0 20px 60px rgba(0,0,0,.1);--radius:16px;--t:.3s cubic-bezier(.4,0,.2,1)}
+[data-theme="dark"]{--bg:#0F172A;--card:#1E293B;--primary:#3B82F6;--secondary:#22D3EE;--accent:#A855F7;--text:#F8FAFC;--muted:#CBD5E1;--border:rgba(255,255,255,.08);--glass:rgba(30,41,59,.7);--shadow:0 4px 24px rgba(0,0,0,.3);--shadow-lg:0 20px 60px rgba(0,0,0,.4)}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;transition:background var(--t),color var(--t);overflow-x:hidden}
+h1,h2,h3{line-height:1.2;font-weight:700}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+#scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--primary),var(--secondary),var(--accent));z-index:10001}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all var(--t)}
+.navbar.scrolled{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:10px 0;box-shadow:var(--shadow)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px}
+.nav-logo{font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:8px;list-style:none}
+.nav-links a{padding:8px 16px;border-radius:8px;font-size:14px;font-weight:500;color:var(--muted);transition:all var(--t)}
+.nav-links a:hover,.nav-links a.active{color:var(--primary);background:rgba(37,99,235,.08)}
+.theme-toggle{width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:16px;color:var(--text);transition:all var(--t)}
+.theme-toggle:hover{border-color:var(--primary);color:var(--primary)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001;background:none;border:0}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all var(--t)}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 0 80px}
+.glow{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:.15;pointer-events:none}
+.glow.a{background:var(--primary);top:-200px;right:-100px}
+.glow.b{background:var(--accent);bottom:-200px;left:-100px}
+.hero-content{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:center;position:relative;z-index:1}
+.hero-image-wrap{display:flex;justify-content:center}
+.avatar{position:relative;width:320px;max-width:100%;aspect-ratio:1}
+.avatar::before,.avatar::after{content:'';position:absolute;border-radius:50%;border:2px solid transparent;animation:spin 10s linear infinite}
+.avatar::before{inset:-8px;border-top-color:var(--primary);border-right-color:var(--secondary)}
+.avatar::after{inset:-18px;border-top-color:var(--accent);animation-direction:reverse;animation-duration:14s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar-face{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:96px;font-weight:900;letter-spacing:-2px;color:#fff;background:linear-gradient(135deg,var(--primary),var(--accent));border:4px solid var(--card);box-shadow:var(--shadow-lg)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2);border-radius:100px;font-size:13px;font-weight:500;color:var(--primary);margin-bottom:20px}
+.hero-badge .dot{width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.5;transform:scale(1.2)}}
+.hero-name{font-size:clamp(30px,5vw,54px);font-weight:900;margin-bottom:8px;background:linear-gradient(135deg,var(--text),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title{font-size:clamp(18px,3vw,24px);font-weight:600;color:var(--primary);margin-bottom:12px}
+.hero-tagline{color:var(--muted);margin-bottom:16px}
+.typing{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--secondary);margin-bottom:24px;min-height:24px}
+.cursor{display:inline-block;width:2px;height:16px;background:var(--secondary);animation:blink 1s infinite;vertical-align:middle;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all var(--t);font-family:inherit}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:0 4px 15px rgba(37,99,235,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 25px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px)}
+.btn-icon{width:44px;height:44px;padding:0;justify-content:center}
+.hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.stat{text-align:center;padding:16px 8px;background:var(--glass);border-radius:12px;border:1px solid var(--border)}
+.stat b{font-size:24px;font-weight:800;color:var(--primary);display:block}
+.stat span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.section{padding:100px 0}
+.alt{background:var(--card)}
+.section-header{text-align:center;margin-bottom:60px}
+.section-title{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:16px}
+.section-desc{color:var(--muted);max-width:600px;margin:0 auto}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.about-text p{color:var(--muted);margin-bottom:20px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tag{padding:6px 14px;background:rgba(37,99,235,.08);border-radius:100px;font-size:13px;font-weight:500;color:var(--primary);border:1px solid rgba(37,99,235,.15)}
+.counters{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.counter{background:var(--card);border-radius:var(--radius);padding:28px;border:1px solid var(--border);text-align:center}
+.alt .counter{background:var(--bg)}
+.counter b{font-size:36px;font-weight:800;color:var(--primary);display:block}
+.counter span{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.card{background:var(--card);border-radius:var(--radius);padding:32px;border:1px solid var(--border);transition:all .4s;min-width:0}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--primary)}
+.skill-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px;background:rgba(37,99,235,.1);color:var(--primary)}
+.card h3{font-size:18px;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{padding:4px 12px;background:var(--bg);border-radius:6px;font-size:12px;color:var(--muted);font-weight:500;border:1px solid var(--border)}
+.timeline{position:relative;max-width:820px;margin:0 auto;padding-left:44px}
+.timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:2px;background:var(--border)}
+.job{position:relative;margin-bottom:40px;background:var(--card);border-radius:var(--radius);padding:28px;border:1px solid var(--border);transition:all var(--t)}
+.job:hover{box-shadow:var(--shadow-lg);border-color:var(--primary)}
+.job::before{content:'';position:absolute;left:-39px;top:30px;width:16px;height:16px;background:var(--primary);border-radius:50%;border:3px solid var(--bg);box-shadow:0 0 0 3px var(--primary)}
+.job .co{font-size:13px;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:1px}
+.job .role{font-size:20px;font-weight:700}
+.job .date{font-size:13px;color:var(--muted);margin-bottom:16px}
+.job ul{list-style:none}
+.job li{position:relative;padding-left:20px;margin-bottom:8px;font-size:14px;color:var(--muted);line-height:1.6}
+.job li::before{content:'\25B8';position:absolute;left:0;color:var(--primary)}
+.project h3{font-size:18px;margin-bottom:12px}
+.project p{font-size:14px;color:var(--muted);margin-bottom:16px}
+.project .chips span{background:rgba(37,99,235,.08);color:var(--primary);border:0}
+.link{display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:var(--primary)}
+.cta{text-align:center;margin-top:48px}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:20px}
+.contact-item{display:flex;align-items:center;gap:16px;padding:20px;background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);transition:all var(--t);min-width:0}
+.contact-item:hover{border-color:var(--primary);transform:translateX(4px)}
+.contact-item i{width:44px;height:44px;background:rgba(37,99,235,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:18px;flex-shrink:0}
+.contact-item h4{font-size:14px;margin-bottom:2px}
+.contact-item p,.contact-item a{font-size:13px;color:var(--muted);word-break:break-all}
+.contact-item a:hover{color:var(--primary)}
+.contact-form{background:var(--bg);border-radius:var(--radius);padding:36px;border:1px solid var(--border)}
+.fg{margin-bottom:20px}
+.fg label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.fg input,.fg textarea{width:100%;padding:12px 16px;background:var(--card);border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:14px;color:var(--text);outline:none;transition:all var(--t)}
+.fg input:focus,.fg textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.fg textarea{resize:vertical;min-height:120px}
+.err{font-size:12px;color:#EF4444;margin-top:4px;display:none}
+.fg.error input,.fg.error textarea{border-color:#EF4444}
+.fg.error .err{display:block}
+.footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;font-size:14px;color:var(--muted)}
+.footer-links{display:flex;justify-content:center;gap:16px;margin-top:12px}
+.footer-links a{font-size:18px;transition:all var(--t)}
+.footer-links a:hover{color:var(--primary)}
+#back-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:0;cursor:pointer;opacity:0;visibility:hidden;transition:all var(--t);z-index:999}
+#back-top.visible{opacity:1;visibility:visible}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.revealed{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media(max-width:1024px){.hero-content,.about-grid,.contact-grid{grid-template-columns:1fr}.hero-image-wrap{order:-1}.hero-text{text-align:center}.hero-btns{justify-content:center}.avatar{width:240px}.avatar-face{font-size:72px}}
+@media(max-width:768px){.nav-links{position:fixed;inset:0;background:var(--bg);flex-direction:column;justify-content:center;align-items:center;gap:16px;opacity:0;visibility:hidden;transition:all var(--t)}.nav-links.open{opacity:1;visibility:visible}.hamburger{display:flex}.hero-stats{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.timeline{padding-left:36px}.job::before{left:-31px}}
+</style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+
+<nav class="navbar" id="navbar"><div class="nav-inner">
+<a href="#home" class="nav-logo">BC</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home" class="active">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+</ul>
+<div style="display:flex;align-items:center;gap:8px">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></div></nav>
+
+<section class="hero" id="home">
+<div class="glow a"></div><div class="glow b"></div>
+<div class="container"><div class="hero-content">
+<div class="hero-image-wrap"><div class="avatar" role="img" aria-label="Bijay Kumar Chaudhary initials"><img class="avatar-face" src="bijay.png" alt="Bijay Kumar Chaudhary"></div></div>
+<div class="hero-text">
+<div class="hero-badge"><span class="dot"></span> Open to new opportunities</div>
+<h1 class="hero-name">Bijay Kumar Chaudhary</h1>
+<p class="hero-title">Software Engineer</p>
+<p class="hero-tagline">Building scalable Java and Spring Boot platforms for healthcare and financial services</p>
+<div class="typing"><span id="typingText"></span><span class="cursor"></span></div>
+<div class="hero-btns">
+<a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Contact Me</a>
+<a href="BijayKumarChaudharySoftwareEngineer.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Download Resume</a>
+<a href="https://www.linkedin.com/in/bijay-kumar-chaudhary-0797911b1" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-outline" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://github.com/bijaykumar11" target="_blank" rel="noopener noreferrer" class="btn btn-icon btn-outline" aria-label="GitHub"><i class="fab fa-github"></i></a>
+</div>
+<div class="hero-stats">
+<div class="stat"><b data-count="3" data-suffix="+">0</b><span>Years Exp.</span></div>
+<div class="stat"><b data-count="1" data-suffix="M+">0</b><span>Txns / Month</span></div>
+<div class="stat"><b data-count="30" data-suffix="%">0</b><span>Less Lookup Time</span></div>
+<div class="stat"><b data-count="99.9" data-suffix="%">0</b><span>Availability</span></div>
+</div>
+</div></div></div>
+</section>
+
+<section class="section" id="about"><div class="container">
+<div class="section-header reveal"><h2 class="section-title">Who I Am</h2><p class="section-desc">A software engineer who turns complex, regulated workflows into reliable, secure, production-ready systems.</p></div>
+<div class="about-grid">
+<div class="about-text reveal">
+<p>Software Engineer with <strong>3+ years of experience</strong> building scalable Java and Spring Boot applications across healthcare and financial services. I develop microservices, REST APIs, and Kafka-based event processing, and deploy them on AWS with AI/ML-integrated workflows.</p>
+<p>My work centers on API performance optimization, secure data processing, CI/CD automation, and enterprise reliability, supporting high-volume transactions in regulated data environments. At Centene I build RAG-powered GenAI solutions for healthcare operations.</p>
+<div class="tags"><span class="tag">Java 17/21 &amp; Spring Boot</span><span class="tag">Microservices</span><span class="tag">Kafka</span><span class="tag">AWS &amp; Azure</span><span class="tag">RAG &amp; GenAI</span><span class="tag">HIPAA &amp; PCI DSS</span><span class="tag">Terraform &amp; CI/CD</span><span class="tag">OAuth 2.0 &amp; RBAC</span></div>
+</div>
+<div class="counters reveal">
+<div class="counter"><b data-target="3" data-suffix="+">0</b><span>Years Experience</span></div>
+<div class="counter"><b data-target="2" data-suffix="">0</b><span>Industries: Healthcare &amp; Finance</span></div>
+<div class="counter"><b data-target="94" data-suffix="%">0</b><span>RAG Answer Relevance</span></div>
+<div class="counter"><b data-target="12" data-suffix=" min">0</b><span>AWS Deploys, down from 25</span></div>
+</div>
+</div></div></section>
+
+<section class="section alt" id="skills"><div class="container">
+<div class="section-header reveal"><h2 class="section-title">My Expertise</h2><p class="section-desc">Backend architecture, GenAI, cloud delivery, and security for regulated domains.</p></div>
+<div class="grid">
+<div class="card reveal"><div class="skill-icon"><i class="fas fa-server"></i></div><h3>Languages &amp; Backend</h3><div class="chips"><span>Java 17/21</span><span>Python</span><span>SQL</span><span>TypeScript</span><span>JavaScript</span><span>Spring Boot</span><span>Spring MVC</span><span>Spring Cloud</span><span>JPA</span><span>Hibernate</span><span>Microservices</span><span>REST</span><span>SOAP</span><span>Distributed Systems</span></div></div>
+<div class="card reveal"><div class="skill-icon"><i class="fas fa-brain"></i></div><h3>AI / GenAI</h3><div class="chips"><span>LLMs</span><span>RAG</span><span>LangChain</span><span>LangGraph</span><span>LlamaIndex</span><span>Prompt Engineering</span><span>AI Agents</span><span>Azure OpenAI</span><span>Amazon Bedrock</span><span>Hugging Face</span><span>FAISS</span><span>Pinecone</span><span>MLflow</span><span>NLP</span></div></div>
+<div class="card reveal"><div class="skill-icon"><i class="fas fa-cloud"></i></div><h3>Cloud &amp; DevOps</h3><div class="chips"><span>AWS</span><span>Azure</span><span>EC2</span><span>ECS</span><span>EKS</span><span>Lambda</span><span>S3</span><span>RDS</span><span>API Gateway</span><span>AKS</span><span>Docker</span><span>Kubernetes</span><span>Helm</span><span>Terraform</span><span>Ansible</span><span>Jenkins</span><span>GitHub Actions</span><span>Azure DevOps</span></div></div>
+<div class="card reveal"><div class="skill-icon"><i class="fas fa-database"></i></div><h3>Data &amp; Messaging</h3><div class="chips"><span>Kafka</span><span>Kafka Streams</span><span>RabbitMQ</span><span>SQS</span><span>SNS</span><span>EventBridge</span><span>Oracle</span><span>PostgreSQL</span><span>MySQL</span><span>SQL Server</span><span>MongoDB</span><span>DynamoDB</span><span>Redis</span><span>Elasticsearch</span><span>Snowflake</span><span>Spark</span><span>Databricks</span><span>Airflow</span></div></div>
+<div class="card reveal"><div class="skill-icon"><i class="fas fa-shield-halved"></i></div><h3>Security &amp; Compliance</h3><div class="chips"><span>OAuth 2.0</span><span>OpenID Connect</span><span>JWT</span><span>RBAC</span><span>IAM</span><span>TLS/SSL</span><span>Encryption</span><span>KMS</span><span>HIPAA</span><span>HITECH</span><span>PHI/ePHI</span><span>PCI DSS</span><span>SOX</span><span>KYC / AML</span></div></div>
+<div class="card reveal"><div class="skill-icon"><i class="fas fa-heart-pulse"></i></div><h3>Domain, Testing &amp; Observability</h3><div class="chips"><span>HL7</span><span>FHIR</span><span>Claims</span><span>Eligibility</span><span>Prior Authorization</span><span>Payments</span><span>Fraud Detection</span><span>JUnit 5</span><span>Mockito</span><span>TestNG</span><span>REST Assured</span><span>Cucumber</span><span>Splunk</span><span>ELK</span><span>Prometheus</span><span>Grafana</span><span>CloudWatch</span><span>OpenTelemetry</span></div></div>
+</div></div></section>
+
+<section class="section" id="experience"><div class="container">
+<div class="section-header reveal"><h2 class="section-title">Professional Journey</h2><p class="section-desc">From financial services to healthcare, building reliable systems at scale.</p></div>
+<div class="timeline">
+<div class="job reveal">
+<div class="co">Centene Corporation, USA</div><div class="role">Software Engineer</div><div class="date"><i class="far fa-calendar-alt"></i> Aug 2025 &ndash; Present</div>
+<ul>
+<li>Built RAG-powered GenAI workflows for claims explanation, member inquiries, and case summarization using enterprise LLMs, LangChain, and vector search, reducing manual information lookup by 30%</li>
+<li>Designed grounded retrieval pipelines over claims, eligibility, and approved healthcare knowledge sources, raising answer relevance from 82% to 94% through metadata filtering and prompt engineering</li>
+<li>Engineered Java 17/Spring Boot microservices for claims, eligibility, benefits, and prior authorization, processing 1M+ transactions/month with 99.9%+ availability</li>
+<li>Automated real-time healthcare event processing with Kafka and AWS Lambda, using retries, idempotency, and dead-letter handling to improve reliability</li>
+<li>Reduced API p95 latency from 810ms to 605ms by optimizing SQL queries, service calls, and payload processing</li>
+<li>Cut AWS deployment time from 25 to 12 minutes by streamlining ECS/EKS release workflows with Terraform, Docker, and CI/CD</li>
+<li>Hardened PHI/ePHI workflows with Spring Security, OAuth 2.0/JWT, RBAC, encryption, and audit logging in line with HIPAA</li>
+<li>Integrated AI-assisted case workflows with human validation, access controls, output checks, and auditability for responsible GenAI use</li>
+</ul></div>
+<div class="job reveal">
+<div class="co">Mphasis, India</div><div class="role">Software Engineer</div><div class="date"><i class="far fa-calendar-alt"></i> May 2022 &ndash; Jul 2024</div>
+<ul>
+<li>Developed Java 8/11 and Spring Boot microservices and REST APIs for onboarding, account servicing, transactions, and analytics, handling 500K+ events daily</li>
+<li>Built Kafka-based event processing for customer and transaction data, improving throughput by ~25% during peak workloads</li>
+<li>Integrated AI/ML scoring services through REST APIs for customer segmentation and propensity scoring</li>
+<li>Improved p95 API response time by ~22% via JPA/Hibernate tuning, SQL indexing, connection pooling, and targeted caching</li>
+<li>Secured customer and financial data with Spring Security, OAuth 2.0/JWT, RBAC, and audit logging, covering KYC, AML, CDD, sanctions screening, and PCI DSS</li>
+<li>Containerized and deployed Spring Boot services on AWS ECS with production monitoring</li>
+<li>Wrote JUnit and Mockito tests and supported Jenkins CI/CD pipelines, strengthening regression coverage and release quality</li>
+<li>Monitored production through AWS CloudWatch, resolving transaction failures and latency issues while holding 99.9%+ availability</li>
+</ul></div>
+</div></div></section>
+
+<section class="section alt" id="projects"><div class="container">
+<div class="section-header reveal"><h2 class="section-title">GitHub Projects</h2><p class="section-desc">AI-powered systems, full-stack applications, and Java backend platforms.</p></div>
+<div class="grid">
+<div class="card project reveal"><h3>DocuMind</h3><p>AI-powered document Q&amp;A service that lets users hold intelligent conversations with their documents.</p><div class="chips"><span>Java</span><span>Spring Boot</span><span>LangChain4j</span><span>React</span><span>TypeScript</span><span>AWS CDK</span></div><a class="link" href="https://github.com/bijaykumar11/documind" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a></div>
+<div class="card project reveal"><h3>Housing Rental AI Assistant</h3><p>RAG-based assistant that answers housing and rental questions by retrieving from documents and responding conversationally.</p><div class="chips"><span>React</span><span>Spring Boot</span><span>LangChain4j</span><span>MySQL</span><span>Docker</span></div><a class="link" href="https://github.com/bijaykumar11/Housing-rental-ai-assistant" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a></div>
+<div class="card project reveal"><h3>AI-Powered Resume Analyzer</h3><p>Full-stack application that parses resumes, evaluates content quality, and generates a resume score with actionable feedback.</p><div class="chips"><span>Java</span><span>Spring Boot</span><span>AI</span><span>Full Stack</span></div><a class="link" href="https://github.com/bijaykumar11/ai-Powered-Resume-Analyzer" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a></div>
+<div class="card project reveal"><h3>E-commerce Platform</h3><p>Spring Boot e-commerce backend with products and categories, auth and roles, cart, order lifecycle, Stripe payments, and PostgreSQL.</p><div class="chips"><span>Java</span><span>Spring Boot</span><span>PostgreSQL</span><span>Stripe</span><span>REST API</span></div><a class="link" href="https://github.com/bijaykumar11/ecommerceplatform" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a></div>
+<div class="card project reveal"><h3>SmartMart</h3><p>Full-stack e-commerce platform covering product management, customer workflows, and a complete online shopping experience.</p><div class="chips"><span>Java</span><span>Full Stack</span><span>E-commerce</span></div><a class="link" href="https://github.com/bijaykumar11/smartmart" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a></div>
+<div class="card project reveal"><h3>Hospital Management System</h3><p>Java web application for managing patients, doctors, and administrators through a structured web interface.</p><div class="chips"><span>Java</span><span>Servlet</span><span>JSP</span><span>Database</span></div><a class="link" href="https://github.com/bijaykumar11/Hospital_Management-System-HSM" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a></div>
+<div class="card project reveal"><h3>StudentTrack</h3><p>Full-stack Java web app with secure login, signup, forgot password, and profile updates, plus an administrator view of all students.</p><div class="chips"><span>Java</span><span>JSP</span><span>Servlet</span><span>JDBC</span><span>MySQL</span></div><a class="link" href="https://github.com/bijaykumar11/StudentTrack-FullStack-DynamicWebProject" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a></div>
+</div>
+<div class="cta reveal"><a href="https://github.com/bijaykumar11" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-github"></i> View All on GitHub</a></div>
+</div></section>
+
+<section class="section" id="education"><div class="container">
+<div class="section-header reveal"><h2 class="section-title">Academic Background</h2><p class="section-desc">A foundation in computer science and engineering.</p></div>
+<div class="grid">
+<div class="card reveal"><div class="skill-icon"><i class="fas fa-graduation-cap"></i></div><h3>Master of Science in Computer Science</h3><p style="color:var(--primary);font-weight:500;font-size:14px">Saint Louis University, Missouri, USA</p></div>
+<div class="card reveal"><div class="skill-icon"><i class="fas fa-university"></i></div><h3>Bachelor of Engineering in Computer Science &amp; Engineering</h3><p style="color:var(--primary);font-weight:500;font-size:14px">Sona College of Technology, Anna University, India</p></div>
+</div></div></section>
+
+<section class="section alt" id="contact"><div class="container">
+<div class="section-header reveal"><h2 class="section-title">Get In Touch</h2><p class="section-desc">Open to discussing new opportunities and collaborations.</p></div>
+<div class="contact-grid">
+<div class="contact-info reveal">
+<div class="contact-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><a href="mailto:bijaykumar@myjobstech.com">bijaykumar@myjobstech.com</a></div></div>
+<div class="contact-item"><i class="fas fa-phone"></i><div><h4>Phone</h4><a href="tel:+13143962634">+1 (314) 396-2634</a></div></div>
+<div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><h4>Location</h4><p>USA</p></div></div>
+<div class="contact-item"><i class="fab fa-linkedin-in"></i><div><h4>LinkedIn</h4><a href="https://www.linkedin.com/in/bijay-kumar-chaudhary-0797911b1" target="_blank" rel="noopener noreferrer">linkedin.com/in/bijay-kumar-chaudhary-0797911b1</a></div></div>
+<div class="contact-item"><i class="fab fa-github"></i><div><h4>GitHub</h4><a href="https://github.com/bijaykumar11" target="_blank" rel="noopener noreferrer">github.com/bijaykumar11</a></div></div>
+</div>
+<div class="contact-form reveal">
+<form id="contactForm" novalidate>
+<div class="fg"><label for="name">Full Name *</label><input type="text" id="name" placeholder="Your full name" required><div class="err">Enter your name</div></div>
+<div class="fg"><label for="email">Email Address *</label><input type="email" id="email" placeholder="your@email.com" required><div class="err">Enter a valid email</div></div>
+<div class="fg"><label for="subject">Subject *</label><input type="text" id="subject" placeholder="What is this about?" required><div class="err">Enter a subject</div></div>
+<div class="fg"><label for="message">Message *</label><textarea id="message" placeholder="Your message..." rows="5" required></textarea><div class="err">Enter a message</div></div>
+<button type="submit" class="btn btn-primary" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> Send Message</button>
+</form>
+</div>
+</div></div></section>
+
+<footer class="footer"><div class="container">
+<p>&copy; 2026 Bijay Kumar Chaudhary. All rights reserved.</p>
+<div class="footer-links">
+<a href="mailto:bijaykumar@myjobstech.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+<a href="https://www.linkedin.com/in/bijay-kumar-chaudhary-0797911b1" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://github.com/bijaykumar11" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+</div></div></footer>
+
+<button id="back-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+(function(){
+'use strict';
+var html=document.documentElement,tb=document.getElementById('themeToggle'),theme='light';
+function icon(){tb.querySelector('i').className=theme==='light'?'fas fa-moon':'fas fa-sun'}
+tb.addEventListener('click',function(){theme=theme==='light'?'dark':'light';html.setAttribute('data-theme',theme);icon()});
+
+var hb=document.getElementById('hamburger'),nl=document.getElementById('navLinks');
+hb.addEventListener('click',function(){hb.classList.toggle('active');nl.classList.toggle('open')});
+nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('active');nl.classList.remove('open')})});
+
+var nav=document.getElementById('navbar'),sp=document.getElementById('scroll-progress'),bt=document.getElementById('back-top');
+window.addEventListener('scroll',function(){
+  var st=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight,cur='';
+  nav.classList.toggle('scrolled',st>50);bt.classList.toggle('visible',st>400);
+  sp.style.width=h>0?(st/h*100)+'%':'0';
+  document.querySelectorAll('section[id]').forEach(function(s){if(st>=s.offsetTop-120)cur=s.id});
+  nl.querySelectorAll('a').forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+cur)});
+});
+bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+
+var phrases=['Java & Spring Boot Microservices','RAG-Powered GenAI for Healthcare','Kafka Event-Driven Systems','AWS Deployments with Terraform & CI/CD','HIPAA & PCI DSS Secure Workflows'],pi=0,ci=0,del=false,te=document.getElementById('typingText');
+function type(){
+  var p=phrases[pi];
+  if(!del){te.textContent=p.substring(0,++ci);if(ci===p.length){del=true;return setTimeout(type,1800)}setTimeout(type,60)}
+  else{te.textContent=p.substring(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;return setTimeout(type,400)}setTimeout(type,30)}
+}
+type();
+
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('revealed')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
+
+function count(sel,attr,root){
+  root.querySelectorAll(sel).forEach(function(el){
+    var target=+el.getAttribute(attr),suf=el.getAttribute('data-suffix')||'',dec=String(target).indexOf('.')>-1?1:0,t0=performance.now();
+    (function step(now){
+      var p=Math.min((now-t0)/2000,1),v=target*(1-Math.pow(1-p,3));
+      el.textContent=(dec?v.toFixed(1):Math.floor(v))+suf;
+      if(p<1)requestAnimationFrame(step);
+    })(t0);
+  });
+}
+function once(sel,fn){
+  var el=document.querySelector(sel);if(!el)return;
+  var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fn(el);o.disconnect()}})},{threshold:.3});o.observe(el);
+}
+once('.hero-stats',function(r){count('b[data-count]','data-count',r)});
+once('.counters',function(r){count('b[data-target]','data-target',r)});
+
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target,ok=true;
+  f.querySelectorAll('.fg').forEach(function(g){
+    var i=g.querySelector('input,textarea');g.classList.remove('error');
+    if(!i.value.trim()||(i.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value))){g.classList.add('error');ok=false}
+  });
+  if(!ok)return;
+  var body='From: '+f.name.value+' ('+f.email.value+')\n\n'+f.message.value;
+  window.location.href='mailto:bijaykumar@myjobstech.com?subject='+encodeURIComponent(f.subject.value)+'&body='+encodeURIComponent(body);
+});
+})();
+</script>
+</body>
+</html>
